@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="onClickBtn" v-text="'Test'"/>
+
   </div>
 </template>
 

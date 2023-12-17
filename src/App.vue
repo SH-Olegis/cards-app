@@ -1,19 +1,33 @@
 <script lang="ts">
-import Dashboard from '@/components/Dashboard.vue';
 import { defineComponent } from 'vue';
+
+
+import Layout from '@/components/Layout.vue';
+import Header from '@/components/Header.vue';
+import Sidebar from '@/components/Sidebar.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
-    Dashboard
+    Sidebar,
+    Header,
+    Layout
   }
 })
 </script>
 
 <template>
-  <div>
-    <Dashboard />
-  </div>
+  <Layout>
+    <template #header>
+      <Header />
+    </template>
+    <template #sidebar>
+      <Sidebar />
+    </template>
+    <template #content>
+      Content
+    </template>
+  </Layout>
 </template>
 
 <style scoped>
