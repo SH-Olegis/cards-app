@@ -1,10 +1,10 @@
 <script lang="ts">
-import { defineComponent } from 'vue';
-
+import { defineComponent, onBeforeMount } from 'vue';
 
 import Layout from '@/components/Layout.vue';
 import Header from '@/components/Header.vue';
 import Sidebar from '@/components/Sidebar.vue';
+import { useDocsStore } from '@/stores';
 
 export default defineComponent({
   name: 'App',
@@ -12,6 +12,13 @@ export default defineComponent({
     Sidebar,
     Header,
     Layout
+  },
+  setup() {
+    const docsStore = useDocsStore()
+
+    onBeforeMount(() => {
+      docsStore.getDocsRequest()
+    })
   }
 })
 </script>
